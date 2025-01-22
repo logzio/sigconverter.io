@@ -3,7 +3,7 @@
 import os
 import re
 import requests
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, abort
 
 app = Flask(__name__)
 sigma_versions = [
@@ -65,7 +65,11 @@ def get_pipelines(version):
 def convert(version):
     port = get_port_from_version(version)
     payload = request.json
-    return requests.post(f"http://localhost:{port}/api/v1/convert", json=payload).text
+    response = requests.post(f"http://localhost:{port}/api/v1/convert", json=payload)
+    if response.status_code != 200:
+        return jsonify({"message": response.text}), response.status_code
+
+    return response.text
 
 
 if __name__ == "__main__":

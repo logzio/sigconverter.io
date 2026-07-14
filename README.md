@@ -1,4 +1,15 @@
-# sigconverter.io 🔄
+# sigconverter.io 🔄 (Logz.io fork)
+
+> [!IMPORTANT]
+>
+> **Actively used - do NOT archive or delete.**
+> Despite the low commit activity, this is a maintained fork used internally at Logz.io. Our changes live on the `reject-with-error` branch (not `main`), which is the branch that ships. Internal build/deploy details are documented in Logz.io's private app repo.
+>
+> **Our change:** the frontend propagates backend conversion errors as real HTTP error responses instead of returning them as HTTP 200 with an error body (branch `reject-with-error`).
+>
+> Forked from [magicsword-io/sigconverter.io](https://github.com/magicsword-io/sigconverter.io).
+
+---
 
 [![Website](https://img.shields.io/badge/Website-sigconverter.io-blue)](https://sigconverter.io)
 
